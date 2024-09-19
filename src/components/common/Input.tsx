@@ -72,7 +72,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
         <div className="relative rounded-md">
           {leftIcon && (
-            <div className="text-brand-textBlack pointer-events-none absolute inset-y-0 left-0 flex  items-center justify-center">
+            <div className="text-brand-textBlack pointer-events-none absolute inset-y-0 left-2 flex  items-center justify-center">
               {leftIcon}
             </div>
           )}
@@ -89,7 +89,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           />
 
           {rightIcon && (
-            <div className="text-brand-textBlack absolute inset-y-0 right-0 z-20 flex  items-center justify-center">
+            <div className="text-brand-textBlack absolute inset-y-0 right-2 z-20 flex  items-center justify-center ">
               {rightIcon}
             </div>
           )}
