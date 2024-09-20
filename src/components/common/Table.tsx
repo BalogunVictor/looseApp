@@ -43,7 +43,7 @@ export const EmptyTableState = ({ message }: { message?: string }) => (
       alt="image empty states"
       className="mx-auto h-32 w-32"
       height={32}
-      src="/empty.svg"
+      src="/src/assets/Icons/empty.svg"
       width={32}
     />
     <BodyText className="mt-3 text-center text-sm text-brand-orange-800">

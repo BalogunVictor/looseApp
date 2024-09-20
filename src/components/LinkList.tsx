@@ -9,13 +9,13 @@ function LinkList() {
       {Links.map((link) => (
         <li
           key={link.name}
-          className="group relative px-2 py-3 text-white hover:bg-brown-100/10 rounded mt-2 cursor-pointer"
+          className="group relative px-2 py-3 text-white hover:bg-[#6935D3]/90 rounded mt-2 cursor-pointer"
         >
           <Link href={link.href} className="flex items-center md:ml-4 lg:ml-6">
             <link.Icon />
             <p className="mx-4 block md:hidden lg:block">{link.name}</p>
           </Link>
-          <span className="absolute left-0 top-0 h-full w-1 rounded-tr-lg rounded-br-lg bg-brown-100/10" />
+          <span className="absolute left-0 top-0 h-full w-1 rounded-tr-lg rounded-br-lg bg-white" />
         </li>
       ))}
     </ul>

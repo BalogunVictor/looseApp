@@ -23,7 +23,7 @@ const inputStyles = cva(
       intent: {
         fill: 'bg-gray-100 border-gray-200 focus:border-brand-textInput',
         normal:
-          'border-gray-300 border focus:!outline-none placeholder:text-gray-200  focus:border-brand-orange-800 bg-transparent',
+          'border-gray-300 border focus:!outline-none placeholder:text-gray-300  focus:border-brand-orange-800 bg-transparent',
       },
       size: {
         lg: 'h-16',

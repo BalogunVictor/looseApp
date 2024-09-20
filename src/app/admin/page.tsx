@@ -1,5 +1,6 @@
 'use client';
 
+import { looseAppLogo } from '@/assets/images';
 import { Button } from '@/components/common/Button';
 import { Input } from '@/components/common/Input';
 import { Wrapper } from '@/components/common/Wrapper';
@@ -7,6 +8,7 @@ import { LoginSchema, LoginSchemaType } from '@/lib/validation/login';
 import useAuthMutations from '@/services/mutations/auth';
 import { useAuthStore } from '@/store/store';
 import { zodResolver } from '@hookform/resolvers/zod';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
@@ -53,11 +55,12 @@ function Login() {
 
   return (
     <Wrapper>
-      <div className="w-full h-screen flex flex-col items-center justify-center space-y-2">
+      <div className="w-full h-screen flex flex-col items-center justify-center space-y-10">
+        <Image alt="logo" width={100} height={100} src={looseAppLogo} />
         <div className="bg-white max-w-md w-full rounded-xl shadow-lg">
           <FormProvider {...methods}>
             <form className="p-8 space-y-4" onSubmit={handleSubmit(onSubmit)}>
-              <h1 className="text-center text-2xl font-semibold">Log In</h1>
+              <h1 className="text-center text-2xl font-semibold">Admin</h1>
               <Input
                 {...register('email')}
                 label="Email Address"
@@ -78,6 +81,7 @@ function Login() {
                 type="submit"
                 className="w-full"
                 rounded
+                kinds="secondary"
                 isLoading={isLoading}
               >
                 Login

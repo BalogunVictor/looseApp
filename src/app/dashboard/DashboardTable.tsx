@@ -17,19 +17,22 @@ import { Button } from '@/components/common/Button';
 import { Table } from '@/components/common/Table';
 import { DashboardPayload } from '@/types/user';
 import { wordLimit } from '@/components/WordLimit';
+import { ChevronRightIcon } from '@heroicons/react/24/solid';
+import { useAuthStore } from '@/store/store';
 
 const columnHelper = createColumnHelper<DashboardPayload>();
 
 const DashboardTable = ({ users }: { users: DashboardPayload[] }) => {
   const [filterInput, setFilterInput] = useState('');
   const [rowSelection, setRowSelection] = useState({});
+  const { setUser, setModal } = useAuthStore();
+
+  const handleIconClick = (user: DashboardPayload) => {
+    setUser(user);
+    setModal(true);
+  };
 
   const columns = [
-    columnHelper.accessor('id', {
-      header: 'ID',
-      cell: (info) => <span>{wordLimit(15, info.getValue())}</span>,
-      enableGlobalFilter: true,
-    }),
     columnHelper.accessor('firstName', {
       header: 'First Name',
       cell: (info) => <span>{wordLimit(15, info.getValue())}</span>,
@@ -60,7 +63,25 @@ const DashboardTable = ({ users }: { users: DashboardPayload[] }) => {
       cell: (info) => <span>{wordLimit(15, info.getValue())}</span>,
       enableGlobalFilter: true,
     }),
+    columnHelper.accessor('id', {
+      header: 'ID',
+      cell: (info) => <span>{wordLimit(15, info.getValue())}</span>,
+      enableGlobalFilter: true,
+    }),
+    columnHelper.display({
+      id: 'actions',
+      cell: (info) => {
+        return (
+          info.table.options.data.length > 0 && (
+            <span onClick={() => handleIconClick(info.row.original)}>
+              <ChevronRightIcon className="h-5 w-5" />
+            </span>
+          )
+        );
+      },
+    }),
   ];
+
   const table = useReactTable({
     columns: columns,
     data: users,
@@ -95,6 +116,7 @@ const DashboardTable = ({ users }: { users: DashboardPayload[] }) => {
             leftIcon={<FaSearch />}
             onChange={handleFilterChange}
             value={filterInput}
+            placeholder="Name, UserType, username, gender e.t.c"
           />
         </div>
       </div>

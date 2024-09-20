@@ -18,7 +18,7 @@ const buttonStyle = cva(
       kinds: {
         normal: 'border-white border bg-transparent hover:opacity-70',
         primary: 'bg-brown-700 text-white hover:bg-opacity-80 shadow-sm',
-        secondary: 'bg-white hover:opacity-70',
+        secondary: 'bg-[#6F3FD7] text-white hover:opacity-70',
       },
       rounded: {
         true: '!rounded-full',
