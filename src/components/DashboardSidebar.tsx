@@ -17,7 +17,7 @@ function DashboardSidebar() {
         <LinkList />
       </div>
 
-      <Link className="flex justify-center" href="/login">
+      <Link className="flex justify-center" href="/admin">
         <div className="p-2">
           <div className="flex items-center text-white gap-2">
             <p>Log Out</p>
